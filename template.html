@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Smart Picks — Best Amazon India Deals</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:system-ui,-apple-system,sans-serif;background:#f8f9fa;color:#1a1a2e;line-height:1.6}
+        .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+        header{background:#1a1a2e;color:#fff;padding:1rem 0;position:sticky;top:0;z-index:100}
+        nav{display:flex;justify-content:space-between;align-items:center}
+        .logo{font-size:1.5rem;font-weight:700;color:#ffc107}
+        .nav-links{display:flex;gap:1.5rem;list-style:none}
+        .nav-links a{color:#fff;text-decoration:none;font-weight:500}
+        .nav-links a:hover{color:#ffc107}
+        .hero{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:4rem 0;text-align:center}
+        .hero h1{font-size:2.5rem;margin-bottom:1rem}
+        .hero p{font-size:1.2rem;opacity:0.9}
+        .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+        .stat-box{background:rgba(255,255,255,0.1);padding:1.5rem;border-radius:8px}
+        .stat-number{font-size:2rem;font-weight:700;color:#ffc107}
+        .categories{padding:3rem 0}
+        .categories h2{text-align:center;margin-bottom:2rem;font-size:2rem}
+        .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
+        .cat-card{background:#fff;padding:1.5rem;border-radius:12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.1);cursor:pointer;transition:transform 0.2s}
+        .cat-card:hover{transform:translateY(-5px)}
+        .cat-icon{font-size:2rem;margin-bottom:0.5rem}
+        .cat-count{color:#666;font-size:0.9rem}
+        .products{padding:3rem 0;background:#fff}
+        .products h2{text-align:center;margin-bottom:2rem;font-size:2rem}
+        .filter-bar{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+        .filter-btn{padding:0.5rem 1rem;border:2px solid #1a1a2e;background:#fff;border-radius:20px;cursor:pointer;font-weight:500}
+        .filter-btn:hover,.filter-btn.active{background:#1a1a2e;color:#fff}
+        .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+        .card{background:#f8f9fa;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.1);transition:transform 0.2s}
+        .card:hover{transform:translateY(-5px)}
+        .card img{width:100%;height:200px;object-fit:cover}
+        .card h3{padding:1rem;font-size:1.1rem}
+        .cat{padding:0 1rem;color:#666;font-size:0.85rem;text-transform:capitalize}
+        .btn{display:inline-block;padding:0.75rem 1.5rem;background:#ffc107;color:#1a1a2e;text-decoration:none;font-weight:600;border-radius:6px;margin:1rem}
+        .btn:hover{background:#ff9800}
+        footer{background:#1a1a2e;color:#fff;padding:3rem 0;text-align:center}
+        .footer-links{display:flex;justify-content:center;gap:2rem;margin-bottom:2rem}
+        .footer-links a{color:#fff;text-decoration:none}
+        @media(max-width:768px){.stats{grid-template-columns:1fr}.nav-links{display:none}.hero h1{font-size:1.8rem}}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">🇮🇳 India Smart Picks</div>
+                <ul class="nav-links">
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#deals">Deals</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Best Amazon India Deals</h1>
+            <p>🔄 Last sync: {{LAST_UPDATED}} | Live inventory — synced from Pinterest every 24 hours</p>
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">{{TOTAL_PICKS}}+</div>
+                    <div>Curated Picks</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">4.8★</div>
+                    <div>Avg Rating</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">₹0</div>
+                    <div>Extra Cost</div>
+                </div>
+            </div>
+            <a href="#products" class="btn">🔥 See Top Picks →</a>
+        </div>
+    </section>
+
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2>Browse by Category</h2>
+            <div class="cat-grid">
+                <div class="cat-card" data-filter="kitchen">
+                    <div class="cat-icon">🍳</div>
+                    <h3>Kitchen & Gadgets</h3>
+                    <div class="cat-count">{{KITCHEN_COUNT}} picks</div>
+                </div>
+                <div class="cat-card" data-filter="beauty">
+                    <div class="cat-icon">💄</div>
+                    <h3>Beauty & Skincare</h3>
+                    <div class="cat-count">{{BEAUTY_COUNT}} picks</div>
+                </div>
+                <div class="cat-card" data-filter="fashion">
+                    <div class="cat-icon">👗</div>
+                    <h3>Fashion & Apparel</h3>
+                    <div class="cat-count">{{FASHION_COUNT}} picks</div>
+                </div>
+                <div class="cat-card" data-filter="home">
+                    <div class="cat-icon">🏠</div>
+                    <h3>Home & Living</h3>
+                    <div class="cat-count">{{HOME_COUNT}} picks</div>
+                </div>
+                <div class="cat-card" data-filter="electronics">
+                    <div class="cat-icon">📱</div>
+                    <h3>Electronics</h3>
+                    <div class="cat-count">{{ELECTRONICS_COUNT}} picks</div>
+                </div>
+                <div class="cat-card" data-filter="fitness">
+                    <div class="cat-icon">💪</div>
+                    <h3>Health & Fitness</h3>
+                    <div class="cat-count">{{FITNESS_COUNT}} picks</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Top Picks on Amazon India</h2>
+            <p style="text-align:center;margin-bottom:1.5rem">Every product is scraped directly from our Pinterest. One click takes you to Amazon.</p>
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="kitchen">Kitchen</button>
+                <button class="filter-btn" data-filter="beauty">Beauty</button>
+                <button class="filter-btn" data-filter="fashion">Fashion</button>
+                <button class="filter-btn" data-filter="home">Home</button>
+                <button class="filter-btn" data-filter="electronics">Electronics</button>
+                <button class="filter-btn" data-filter="fitness">Fitness</button>
+            </div>
+            <div id="product-grid" class="product-grid">
+{{PRODUCT_GRID}}
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2025 India Smart Picks. All rights reserved.</p>
+            <p>Shop smart, save big on Amazon India! 🛒</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.card').forEach(card => {
+                    const cat = card.dataset.category;
+                    card.style.display = (filter === 'all' || cat === filter) ? 'block' : 'none';
+                });
+            });
+        });
+        document.querySelectorAll('.cat-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const filter = card.dataset.filter;
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.toggle('active', b.dataset.filter === filter);
+                });
+                document.querySelectorAll('.card').forEach(c => {
+                    const cat = c.dataset.category;
+                    c.style.display = (cat === filter) ? 'block' : 'none';
+                });
+                document.getElementById('products').scrollIntoView({behavior:'smooth'});
+            });
+        });
+    </script>
+</body>
+</html>
