@@ -1,1249 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>India Smart Picks — Best Deals on Amazon India</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght700;900&family=DM+Sans:wght300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Smart Picks — Best Amazon India Deals</title>
     <style>
-        :root {
-            --saffron: #FF6B00;
-            --saffron-light: #FF9A3C;
-            --deep: #1A0A00;
-            --cream: #FFF8F0;
-            --gold: #D4A017;
-            --gold-light: #F5C842;
-            --green: #1E6B3C;
-            --red: #B91C1C;
-            --card-bg: #ffffff;
-            --text: #1A0A00;
-            --muted: #6B5740;
-            --border: #F0E4D4;
-        }
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--cream);
-            color: var(--text);
-            overflow-x: hidden;
-        }        /* ── TOP BAR ── */
-        .topbar {
-            background: var(--deep);
-            color: #fff;
-            text-align: center;
-            font-size: 0.8rem;
-            font-weight: 500;
-            padding: 8px 16px;
-            letter-spacing: 0.04em;
-        }
-        .topbar span { color: var(--gold-light); }
-
-        /* ── NAV ── */
-        nav {
-            position: sticky; top: 0; z-index: 100;
-            background: #fff;
-            border-bottom: 3px solid var(--saffron);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5%;
-            height: 70px;
-            box-shadow: 0 2px 20px rgba(255,107,0,0.12);
-        }
-        .nav-logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.9rem;
-            color: var(--saffron);
-            letter-spacing: 2px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .nav-logo .flag { font-size: 1.4rem; }
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--deep);
-            font-weight: 500;
-            font-size: 0.9rem;
-            letter-spacing: 0.02em;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--saffron); }
-        .nav-cta {
-            background: var(--saffron);
-            color: #fff;
-            padding: 10px 22px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-decoration: none;
-            transition: background 0.2s, transform 0.15s;
-            letter-spacing: 0.03em;
-        }
-        .nav-cta:hover {
-            background: #e05500;
-            transform: translateY(-1px);
-        }        /* ── HERO ── */
-        .hero {
-            position: relative;
-            background: linear-gradient(135deg, #1A0A00 0%, #3D1F00 50%, #1A0A00 100%);
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            padding: 60px 5%;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 70% 50%, rgba(255,107,0,0.18) 0%, transparent 60%);
-        }
-        .hero-pattern {
-            position: absolute;
-            inset: 0;
-            background-image: repeating-linear-gradient(
-                45deg, transparent, transparent 40px,
-                rgba(255,107,0,0.04) 40px, rgba(255,107,0,0.04) 41px
-            );
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-        }
-        .hero-badge {
-            display: inline-block;
-            background: rgba(255,107,0,0.15);
-            border: 1px solid rgba(255,107,0,0.4);
-            color: var(--saffron-light);
-            padding: 6px 16px;
-            border-radius: 100px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            margin-bottom: 22px;
-        }
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.6rem, 5vw, 4.2rem);
-            font-weight: 900;
-            color: #fff;
-            line-height: 1.12;
-            margin-bottom: 18px;
-        }
-        .hero h1 em { font-style: normal; color: var(--saffron-light); }
-        .hero p {
-            color: rgba(255,255,255,0.7);
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 32px;
-            max-width: 480px;
-        }
-        .hero-btns {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-        .btn-primary {
-            background: var(--saffron);
-            color: #fff;
-            padding: 14px 32px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-primary:hover {
-            background: #e05500;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(255,107,0,0.4);
-        }
-        .btn-secondary {
-            background: transparent;
-            color: #fff;
-            padding: 14px 32px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            border: 2px solid rgba(255,255,255,0.3);
-            transition: all 0.2s;
-        }
-        .btn-secondary:hover {
-            border-color: var(--saffron-light);
-            color: var(--saffron-light);
-        }
-        .hero-stats {
-            position: absolute;
-            right: 5%;
-            bottom: 10%;
-            display: flex;
-            gap: 36px;
-            z-index: 2;
-        }
-        .stat {
-            text-align: center;
-            color: #fff;
-        }
-        .stat-num {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.4rem;
-            color: var(--saffron-light);
-            line-height: 1;
-        }
-        .stat-label {
-            font-size: 0.72rem;
-            letter-spacing: 0.08em;
-            opacity: 0.6;
-            text-transform: uppercase;
-            margin-top: 4px;
-        }        /* ── SECTION COMMON ── */
-        section { padding: 80px 5%; }
-        .section-header {
-            text-align: center;
-            margin-bottom: 52px;
-        }
-        .section-tag {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--saffron);
-            margin-bottom: 10px;
-        }
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-            font-weight: 900;
-            color: var(--deep);
-            line-height: 1.2;
-        }
-        .section-header p {
-            color: var(--muted);
-            font-size: 1rem;
-            margin-top: 12px;
-            max-width: 480px;
-            margin-inline: auto;
-            line-height: 1.7;
-        }
-
-        /* ── CATEGORIES ── */
-        .categories-section {
-            background: var(--deep);
-        }
-        .categories-section .section-header h2 { color: #fff; }
-        .categories-section .section-tag { color: var(--gold-light); }
-        .categories-section .section-header p { color: rgba(255,255,255,0.55); }
-        .cat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 16px;
-        }
-        .cat-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,107,0,0.2);
-            border-radius: 12px;
-            padding: 26px 16px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.25s;
-            text-decoration: none;
-        }
-        .cat-card:hover {
-            background: rgba(255,107,0,0.12);
-            border-color: var(--saffron);
-            transform: translateY(-4px);
-        }
-        .cat-icon { font-size: 2.2rem; margin-bottom: 10px; }
-        .cat-name {
-            color: #fff;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        .cat-count {
-            color: rgba(255,255,255,0.45);
-            font-size: 0.72rem;
-            margin-top: 4px;
-        }        /* ── PRODUCTS ── */
-        .products-section { background: var(--cream); }
-        .filter-bar {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-        .filter-btn {
-            padding: 9px 20px;
-            border-radius: 100px;
-            border: 2px solid var(--border);
-            background: #fff;
-            color: var(--muted);
-            font-size: 0.83rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: 'DM Sans', sans-serif;
-        }
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--saffron);
-            border-color: var(--saffron);
-            color: #fff;
-        }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-            gap: 24px;
-        }
-        .product-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-        .product-card:hover {
-            box-shadow: 0 16px 48px rgba(255,107,0,0.15);
-            transform: translateY(-6px);
-            border-color: rgba(255,107,0,0.3);
-        }
-        .badge-row {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            display: flex;
-            gap: 6px;
-            z-index: 3;
-        }
-        .badge {
-            padding: 4px 10px;
-            border-radius: 100px;
-            font-size: 0.68rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-        .badge-deal { background: var(--red); color: #fff; }
-        .badge-top { background: var(--gold); color: var(--deep); }
-        .badge-new { background: var(--green); color: #fff; }
-        .product-img-wrap {
-            height: 220px;
-            overflow: hidden;
-            background: #f8f4ef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .product-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        .product-card:hover .product-img-wrap img { transform: scale(1.06); }
-        .product-body {
-            padding: 18px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .product-cat {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--saffron);
-            margin-bottom: 6px;
-        }
-        .product-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--deep);
-            line-height: 1.35;
-            margin-bottom: 8px;
-        }
-        .product-desc {
-            font-size: 0.82rem;
-            color: var(--muted);
-            line-height: 1.6;
-            flex: 1;
-            margin-bottom: 14px;
-        }
-        .stars { color: var(--gold); font-size: 0.82rem; margin-bottom: 4px; }
-        .stars span { color: var(--muted); margin-left: 4px; }
-        .price-row {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-        .price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--deep);
-        }
-        .price-orig {
-            font-size: 0.88rem;
-            color: var(--muted);
-            text-decoration: line-through;
-        }
-        .discount {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--green);
-        }
-        .product-footer {
-            display: flex;
-            gap: 10px;
-        }
-        .btn-amazon {
-            flex: 1;
-            background: var(--saffron);
-            color: #fff;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-align: center;
-            text-decoration: none;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-        .btn-amazon:hover {
-            background: #e05500;
-            transform: scale(1.02);
-        }
-        .btn-wish {
-            width: 44px;
-            height: 44px;
-            border-radius: 8px;
-            border: 2px solid var(--border);
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-decoration: none;
-        }
-        .btn-wish:hover {
-            border-color: var(--red);
-            background: #fff0f0;
-        }        /* ── FEATURED DEAL ── */
-        .deal-section {
-            background: linear-gradient(135deg, var(--saffron) 0%, #FF9A3C 100%);
-            padding: 70px 5%;
-        }
-        .deal-inner {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        .deal-label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 14px;
-        }
-        .deal-inner h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 3vw, 3rem);
-            font-weight: 900;
-            color: #fff;
-            line-height: 1.15;
-            margin-bottom: 16px;
-        }
-        .deal-inner p {
-            color: rgba(255,255,255,0.85);
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 28px;
-        }
-        .deal-features {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 32px;
-        }
-        .deal-feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: rgba(255,255,255,0.9);
-            font-size: 0.88rem;
-            font-weight: 500;
-        }
-        .deal-feature::before {
-            content: '\u2713';
-            background: rgba(255,255,255,0.25);
-            border-radius: 50%;
-            width: 22px;
-            height: 22px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-weight: 800;
-            flex-shrink: 0;
-        }
-        .btn-white {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #fff;
-            color: var(--saffron);
-            padding: 14px 32px;
-            border-radius: 8px;
-            font-weight: 800;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-        .btn-white:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.2);
-        }
-        .deal-img-wrap {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 24px 60px rgba(0,0,0,0.25);
-        }
-        .deal-img-wrap img { width: 100%; display: block; }        /* ── HOW IT WORKS ── */
-        .hiw-section { background: #fff; }
-        .hiw-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 32px;
-            max-width: 1000px;
-            margin: auto;
-        }
-        .hiw-card { text-align: center; }
-        .hiw-num {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3.5rem;
-            color: var(--border);
-            line-height: 1;
-            margin-bottom: 16px;
-        }
-        .hiw-icon { font-size: 2rem; margin-bottom: 12px; }
-        .hiw-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        .hiw-card p {
-            color: var(--muted);
-            font-size: 0.85rem;
-            line-height: 1.7;
-        }
-
-        /* ── TESTIMONIALS ── */
-        .reviews-section { background: var(--cream); }
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
-        }
-        .review-card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 28px;
-            border: 1px solid var(--border);
-        }
-        .review-stars { color: var(--gold); font-size: 1rem; margin-bottom: 14px; }
-        .review-text {
-            color: var(--muted);
-            font-size: 0.88rem;
-            line-height: 1.7;
-            margin-bottom: 18px;
-            font-style: italic;
-        }
-        .reviewer {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .reviewer-avatar {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: var(--saffron);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-weight: 700;
-            font-size: 1rem;
-        }
-        .reviewer-name {
-            font-weight: 600;
-            font-size: 0.88rem;
-        }
-        .reviewer-loc {
-            color: var(--muted);
-            font-size: 0.75rem;
-            margin-top: 2px;
-        }        /* ── NEWSLETTER ── */
-        .newsletter-section {
-            background: var(--deep);
-            text-align: center;
-            padding: 80px 5%;
-        }
-        .newsletter-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-weight: 900;
-            color: #fff;
-            margin-bottom: 12px;
-        }
-        .newsletter-section p {
-            color: rgba(255,255,255,0.6);
-            font-size: 1rem;
-            margin-bottom: 32px;
-        }
-        .newsletter-form {
-            display: flex;
-            gap: 12px;
-            max-width: 480px;
-            margin: auto;
-            flex-wrap: wrap;
-        }
-        .newsletter-form input {
-            flex: 1;
-            padding: 14px 18px;
-            border-radius: 8px;
-            border: 2px solid rgba(255,255,255,0.1);
-            background: rgba(255,255,255,0.07);
-            color: #fff;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.9rem;
-            outline: none;
-            transition: border 0.2s;
-        }
-        .newsletter-form input::placeholder { color: rgba(255,255,255,0.35); }
-        .newsletter-form input:focus { border-color: var(--saffron); }
-        .newsletter-form button {
-            background: var(--saffron);
-            color: #fff;
-            padding: 14px 28px;
-            border-radius: 8px;
-            border: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            font-family: 'DM Sans', sans-serif;
-            transition: background 0.2s;
-        }
-        .newsletter-form button:hover { background: #e05500; }        /* ── FOOTER ── */
-        footer {
-            background: #0D0500;
-            color: rgba(255,255,255,0.65);
-            padding: 60px 5% 30px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 48px;
-            padding-bottom: 48px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            margin-bottom: 28px;
-        }
-        .footer-brand .logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.7rem;
-            color: var(--saffron);
-            letter-spacing: 2px;
-            margin-bottom: 14px;
-            display: block;
-        }
-        .footer-brand p {
-            font-size: 0.85rem;
-            line-height: 1.7;
-            max-width: 260px;
-        }
-        .footer-socials {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .social-btn {
-            width: 38px;
-            height: 38px;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.07);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-        .social-btn:hover { background: var(--saffron); }
-        .footer-col h4 {
-            color: #fff;
-            font-size: 0.88rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            margin-bottom: 18px;
-        }
-        .footer-col ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .footer-col ul a {
-            color: rgba(255,255,255,0.55);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.2s;
-        }
-        .footer-col ul a:hover { color: var(--saffron-light); }
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            font-size: 0.78rem;
-        }
-        .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
-        .disclaimer {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 8px;
-            padding: 14px 20px;
-            font-size: 0.75rem;
-            line-height: 1.6;
-            margin-bottom: 24px;
-            color: rgba(255,255,255,0.4);
-        }        /* ── ANIMATIONS ── */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hero-content > * {
-            animation: fadeUp 0.7s ease both;
-        }
-        .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
-        .hero-content > *:nth-child(2) { animation-delay: 0.22s; }
-        .hero-content > *:nth-child(3) { animation-delay: 0.34s; }
-        .hero-content > *:nth-child(4) { animation-delay: 0.46s; }
-        .hero-content > *:nth-child(5) { animation-delay: 0.58s; }
-
-        /* ── RESPONSIVE ── */
-        @media(max-width: 900px) {
-            .deal-inner { grid-template-columns: 1fr; }
-            .deal-img-wrap { order: -1; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            .hero-stats { position: static; margin-top: 48px; }
-            .hero { flex-direction: column; }
-            nav .nav-links { display: none; }
-        }
-        @media(max-width: 560px) {
-            .footer-grid { grid-template-columns: 1fr; }
-        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:system-ui,-apple-system,sans-serif;background:#f8f9fa;color:#1a1a2e;line-height:1.6}
+        .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+        header{background:#1a1a2e;color:#fff;padding:1rem 0;position:sticky;top:0;z-index:100}
+        nav{display:flex;justify-content:space-between;align-items:center}
+        .logo{font-size:1.5rem;font-weight:700;color:#ffc107}
+        .nav-links{display:flex;gap:1.5rem;list-style:none}
+        .nav-links a{color:#fff;text-decoration:none;font-weight:500}
+        .nav-links a:hover{color:#ffc107}
+        .hero{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:4rem 0;text-align:center}
+        .hero h1{font-size:2.5rem;margin-bottom:1rem}
+        .hero p{font-size:1.2rem;opacity:0.9}
+        .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+        .stat-box{background:rgba(255,255,255,0.1);padding:1.5rem;border-radius:8px}
+        .stat-number{font-size:2rem;font-weight:700;color:#ffc107}
+        .categories{padding:3rem 0}
+        .categories h2{text-align:center;margin-bottom:2rem;font-size:2rem}
+        .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
+        .cat-card{background:#fff;padding:1.5rem;border-radius:12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.1);cursor:pointer;transition:transform 0.2s}
+        .cat-card:hover{transform:translateY(-5px)}
+        .cat-icon{font-size:2rem;margin-bottom:0.5rem}
+        .cat-count{color:#666;font-size:0.9rem}
+        .products{padding:3rem 0;background:#fff}
+        .products h2{text-align:center;margin-bottom:2rem;font-size:2rem}
+        .filter-bar{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+        .filter-btn{padding:0.5rem 1rem;border:2px solid #1a1a2e;background:#fff;border-radius:20px;cursor:pointer;font-weight:500}
+        .filter-btn:hover,.filter-btn.active{background:#1a1a2e;color:#fff}
+        .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+        .card{background:#f8f9fa;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.1);transition:transform 0.2s}
+        .card:hover{transform:translateY(-5px)}
+        .card img{width:100%;height:200px;object-fit:cover}
+        .card h3{padding:1rem;font-size:1.1rem}
+        .cat{padding:0 1rem;color:#666;font-size:0.85rem;text-transform:capitalize}
+        .btn{display:inline-block;padding:0.75rem 1.5rem;background:#ffc107;color:#1a1a2e;text-decoration:none;font-weight:600;border-radius:6px;margin:1rem}
+        .btn:hover{background:#ff9800}
+        footer{background:#1a1a2e;color:#fff;padding:3rem 0;text-align:center}
+        .footer-links{display:flex;justify-content:center;gap:2rem;margin-bottom:2rem}
+        .footer-links a{color:#fff;text-decoration:none}
+        @media(max-width:768px){.stats{grid-template-columns:1fr}.nav-links{display:none}.hero h1{font-size:1.8rem}}
     </style>
-</head><body>
-    <!-- Top Bar -->
-    <div class="topbar">
-        <span>🚀</span> Best Amazon India Deals — Updated Daily! &nbsp;|&nbsp; Trusted Picks by India Smart Picks 🇮🇳
-    </div>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">🇮🇳 India Smart Picks</div>
+                <ul class="nav-links">
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#deals">Deals</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="#" class="nav-logo"><span class="flag">🇮🇳</span> India Smart Picks</a>
-        <ul class="nav-links">
-            <li><a href="#products">Products</a></li>
-            <li><a href="#deals">Deals</a></li>
-            <li><a href="#categories">Categories</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
-        <a href="https://www.amazon.in/?tag=indiasmartpicks-21" class="nav-cta">Shop on Amazon ↗</a>
-    </nav>
-
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-pattern"></div>
-        <div class="hero-content">
-            <div class="hero-badge">🇮🇳 India's Trusted Picks</div>
-            <h1>Smart Deals for <em>Every Indian</em> Home</h1>
-            <p>Handpicked best-sellers across Fashion, Beauty, Kitchen & Lifestyle — all linked directly to Amazon India. Real deals, real savings.</p>
-            <div class="hero-btns">
-                <a href="#products" class="btn-primary">🔥 See Top Picks</a>
-                <a href="#deals" class="btn-secondary">Today's Deals →</a>
+        <div class="container">
+            <h1>Best Amazon India Deals</h1>
+            <p>🔄 Last sync: 06 Apr 2026 | Live inventory — synced from Pinterest every 24 hours</p>
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">3+</div>
+                    <div>Curated Picks</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">4.8★</div>
+                    <div>Avg Rating</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">₹0</div>
+                    <div>Extra Cost</div>
+                </div>
             </div>
+            <a href="#products" class="btn">🔥 See Top Picks →</a>
         </div>
-        <div class="hero-stats">
-            <div class="stat">
-                <div class="stat-num">50+</div>
-                <div class="stat-label">Curated Picks</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">4.8★</div>
-                <div class="stat-label">Avg Rating</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">₹0</div>
-                <div class="stat-label">Extra Cost</div>
+    </section>
+
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2>Browse by Category</h2>
+            <div class="cat-grid">
+                <div class="cat-card" data-filter="kitchen">
+                    <div class="cat-icon">🍳</div>
+                    <h3>Kitchen & Gadgets</h3>
+                    <div class="cat-count">1 picks</div>
+                </div>
+                <div class="cat-card" data-filter="beauty">
+                    <div class="cat-icon">💄</div>
+                    <h3>Beauty & Skincare</h3>
+                    <div class="cat-count">1 picks</div>
+                </div>
+                <div class="cat-card" data-filter="fashion">
+                    <div class="cat-icon">👗</div>
+                    <h3>Fashion & Apparel</h3>
+                    <div class="cat-count">1 picks</div>
+                </div>
+                <div class="cat-card" data-filter="home">
+                    <div class="cat-icon">🏠</div>
+                    <h3>Home & Living</h3>
+                    <div class="cat-count">0 picks</div>
+                </div>
+                <div class="cat-card" data-filter="electronics">
+                    <div class="cat-icon">📱</div>
+                    <h3>Electronics</h3>
+                    <div class="cat-count">0 picks</div>
+                </div>
+                <div class="cat-card" data-filter="fitness">
+                    <div class="cat-icon">💪</div>
+                    <h3>Health & Fitness</h3>
+                    <div class="cat-count">0 picks</div>
+                </div>
             </div>
         </div>
     </section>
-    <!-- Categories Section -->
-    <section class="categories-section" id="categories">
-        <div class="section-header">
-            <div class="section-tag">Browse by Category</div>
-            <h2>Find Your Perfect Pick</h2>
-            <p>From kitchen to fashion — we cover every corner of smart Indian shopping.</p>
-        </div>
-        <div class="cat-grid">
-            <a href="#products" class="cat-card" data-cat="kitchen">
-                <div class="cat-icon">🍳</div>
-                <div class="cat-name">Kitchen & Gadgets</div>
-                <div class="cat-count">12 picks</div>
-            </a>
-            <a href="#products" class="cat-card" data-cat="beauty">
-                <div class="cat-icon">💄</div>
-                <div class="cat-name">Beauty & Skincare</div>
-                <div class="cat-count">8 picks</div>
-            </a>
-            <a href="#products" class="cat-card" data-cat="fashion">
-                <div class="cat-icon">👗</div>
-                <div class="cat-name">Fashion & Apparel</div>
-                <div class="cat-count">10 picks</div>
-            </a>
-            <a href="#products" class="cat-card" data-cat="home">
-                <div class="cat-icon">🏠</div>
-                <div class="cat-name">Home & Living</div>
-                <div class="cat-count">9 picks</div>
-            </a>
-            <a href="#products" class="cat-card" data-cat="electronics">
-                <div class="cat-icon">📱</div>
-                <div class="cat-name">Electronics</div>
-                <div class="cat-count">7 picks</div>
-            </a>
-            <a href="#products" class="cat-card" data-cat="health">
-                <div class="cat-icon">💪</div>
-                <div class="cat-name">Health & Fitness</div>
-                <div class="cat-count">6 picks</div>
-            </a>
-        </div>
-    </section>
-    <!-- Products Section -->
-    <section class="products-section" id="products">
-        <div class="section-header">
-            <div class="section-tag">Handpicked Just for You</div>
+
+    <section id="products" class="products">
+        <div class="container">
             <h2>Top Picks on Amazon India</h2>
-            <p>Every product is carefully curated. One click takes you straight to Amazon.</p>
-        </div>
-        <div class="filter-bar">
-            <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
-            <button class="filter-btn" onclick="filterProducts('kitchen', this)">Kitchen</button>
-            <button class="filter-btn" onclick="filterProducts('beauty', this)">Beauty</button>
-            <button class="filter-btn" onclick="filterProducts('fashion', this)">Fashion</button>
-            <button class="filter-btn" onclick="filterProducts('home', this)">Home</button>
-            <button class="filter-btn" onclick="filterProducts('electronics', this)">Electronics</button>
-        </div>
-        <div class="products-grid">
-            <!-- Product 1 -->
-            <div class="product-card" data-cat="kitchen">
-                <div class="badge-row"><span class="badge badge-top">⭐ Top Pick</span><span class="badge badge-deal">-37%</span></div>
-                <div class="product-img-wrap"><img src="https://m.media-amazon.com/images/I/61vJv0K5NXL._SL1500_.jpg" alt="Philips 6.2L Air Fryer" /></div>
-                <div class="product-body">
-                    <div class="product-cat">🍳 Kitchen & Gadgets</div>
-                    <div class="product-name">Philips 6.2L Extra Large Air Fryer</div>
-                    <div class="product-desc">Badi family ke liye perfect! 6.2L capacity with cooking window, 1700W powerful heating. Watch food cook without opening!</div>
-                    <div class="stars">★★★★★ <span>(2,847 reviews)</span></div>
-                    <div class="price-row">
-                        <span class="price">₹8,999</span>
-                        <span class="price-orig">₹14,299</span>
-                        <span class="discount">37% off</span>
-                    </div>
-                    <div class="product-footer">
-                        <a href="https://amzn.to/3QgG8eG" class="btn-amazon">🛒 Buy on Amazon</a>
-                        <a href="#" class="btn-wish">♡</a>
-                    </div>
-                </div>
+            <p style="text-align:center;margin-bottom:1.5rem">Every product is scraped directly from our Pinterest. One click takes you to Amazon.</p>
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="kitchen">Kitchen</button>
+                <button class="filter-btn" data-filter="beauty">Beauty</button>
+                <button class="filter-btn" data-filter="fashion">Fashion</button>
+                <button class="filter-btn" data-filter="home">Home</button>
+                <button class="filter-btn" data-filter="electronics">Electronics</button>
+                <button class="filter-btn" data-filter="fitness">Fitness</button>
             </div>
-            <!-- Product 2 -->
-            <div class="product-card" data-cat="kitchen">
-                <div class="badge-row"><span class="badge badge-deal">-42%</span></div>
-                <div class="product-img-wrap"><img src="https://m.media-amazon.com/images/I/61qX7bY8VdL._SL1500_.jpg" alt="Philips 4.2L Air Fryer" /></div>
-                <div class="product-body">
-                    <div class="product-cat">🍳 Kitchen & Gadgets</div>
-                    <div class="product-name">Philips 4.2L Air Fryer — India's #1</div>
-                    <div class="product-desc">Crispy samose, pakore, french fries — bina zyada tel ke! Rapid Air Technology, 90% less oil, 3-4 log ke liye perfect.</div>
-                    <div class="stars">★★★★★ <span>(5,124 reviews)</span></div>
-                    <div class="price-row">
-                        <span class="price">₹6,499</span>
-                        <span class="price-orig">₹11,195</span>
-                        <span class="discount">42% off</span>
-                    </div>
-                    <div class="product-footer">
-                        <a href="https://amzn.to/4t02ujd" class="btn-amazon">🛒 Buy on Amazon</a>
-                        <a href="#" class="btn-wish">♡</a>
-                    </div>
-                </div>
-            </div>            <!-- Product 3 -->
-            <div class="product-card" data-cat="kitchen">
-                <div class="badge-row"><span class="badge badge-new">New</span><span class="badge badge-deal">-28%</span></div>
-                <div class="product-img-wrap"><img src="https://m.media-amazon.com/images/I/61y8zX9ZKHL._SL1500_.jpg" alt="SOLARA Air Fryer" /></div>
-                <div class="product-body">
-                    <div class="product-cat">🍳 Kitchen & Gadgets</div>
-                    <div class="product-name">SOLARA 4.5L See-Through Window Air Fryer</div>
-                    <div class="product-desc">Game changer! See-through window lets you watch food cook. 10 preset menus, 360° air circulation, 90% less oil!</div>
-                    <div class="stars">★★★★☆ <span>(1,203 reviews)</span></div>
-                    <div class="price-row">
-                        <span class="price">₹5,299</span>
-                        <span class="price-orig">₹7,349</span>
-                        <span class="discount">28% off</span>
-                    </div>
-                    <div class="product-footer">
-                        <a href="https://www.amazon.in/s?k=SOLARA+air+fryer+see+through&tag=indiasmartpicks-21" class="btn-amazon">🛒 Buy on Amazon</a>
-                        <a href="#" class="btn-wish">♡</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 4 -->
-            <div class="product-card" data-cat="kitchen">
-                <div class="badge-row"><span class="badge badge-top">Budget Pick</span></div>
-                <div class="product-img-wrap"><img src="https://m.media-amazon.com/images/I/61kV3Z8XGSL._SL1500_.jpg" alt="Pigeon Healthifry Air Fryer" /></div>
-                <div class="product-body">
-                    <div class="product-cat">🍳 Kitchen & Gadgets</div>
-                    <div class="product-name">Pigeon Healthifry 4.2L Digital Air Fryer</div>
-                    <div class="product-desc">Indians ka favorite budget air fryer! 360° high-speed air circulation, 4.2L family size, digital controls — easy to use!</div>
-                    <div class="stars">★★★★☆ <span>(3,410 reviews)</span></div>
-                    <div class="price-row">
-                        <span class="price">₹3,799</span>
-                        <span class="price-orig">₹5,299</span>
-                        <span class="discount">28% off</span>
-                    </div>
-                    <div class="product-footer">
-                        <a href="https://www.amazon.in/s?k=Pigeon+Healthifry+Digital+Air+Fryer&tag=indiasmartpicks-21" class="btn-amazon">🛒 Buy on Amazon</a>
-                        <a href="#" class="btn-wish">♡</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 5 -->
-            <div class="product-card" data-cat="beauty">
-                <div class="badge-row"><span class="badge badge-top">⭐ Best Seller</span></div>
-                <div class="product-img-wrap"><img src="https://m.media-amazon.com/images/I/51n2vJx3bJL._SL1200_.jpg" alt="Minimalist Vitamin C Serum" /></div>
-                <div class="product-body">
-                    <div class="product-cat">💄 Beauty & Skincare</div>
-                    <div class="product-name">Minimalist 10% Vitamin C Face Serum</div>
-                    <div class="product-desc">India's most loved brightening serum. Reduces dark spots, evens skin tone, and boosts glow — dermatologist tested!</div>
-                    <div class="stars">★★★★★ <span>(18,902 reviews)</span></div>
-                    <div class="price-row">
-                        <span class="price">₹399</span>
-                        <span class="price-orig">₹699</span>
-                        <span class="discount">43% off</span>
-                    </div>
-                    <div class="product-footer">
-                        <a href="https://www.amazon.in/s?k=Minimalist+Vitamin+C+Serum&tag=indiasmartpicks-21" class="btn-amazon">🛒 Buy on Amazon</a>
-                        <a href="#" class="btn-wish">♡</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 6 -->
-            <div class="product-card" data-cat="home">
-                <div class="badge-row"><span class="badge badge-deal">-35%</span></div>
-                <div class="product-img-wrap"><img src="https://m.media-amazon.com/images/I/61xGZ9y+OOL._SL1500_.jpg" alt="Milton Water Bottle" /></div>
-                <div class="product-body">
-                    <div class="product-cat">🏠 Home & Lifestyle</div>
-                    <div class="product-name">Milton Thermosteel Flip Lid Bottle 1L</div>
-                    <div class="product-desc">India's #1 steel bottle. Hot for 24 hrs, cold for 48 hrs. BPA-free, leak-proof, office & travel ready.</div>
-                    <div class="stars">★★★★★ <span>(24,501 reviews)</span></div>
-                    <div class="price-row">
-                        <span class="price">₹699</span>
-                        <span class="price-orig">₹1,075</span>
-                        <span class="discount">35% off</span>
-                    </div>
-                    <div class="product-footer">
-                        <a href="https://www.amazon.in/s?k=Milton+Thermosteel+Flip+Lid+Bottle+1L&tag=indiasmartpicks-21" class="btn-amazon">🛒 Buy on Amazon</a>
-                        <a href="#" class="btn-wish">♡</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 7 -->
-            <div class="product-card" data-cat="electronics">
-                <div class="badge-row"><span class="badge badge-top">⭐ Editor's Choice</span></div>
-                <div class="product-img-wrap"><img src="https://m.media-amazon.com/images/I/61K3uYdXWBL._SL1500_.jpg" alt="boAt Earbuds" /></div>
-                <div class="product-body">
-                    <div class="product-cat">📱 Electronics</div>
-                    <div class="product-name">boAt Airdopes 141 TWS Earbuds</div>
-                    <div class="product-desc">42hr total playback, ENx tech for clear calls, BEAST Mode for gaming. India's most popular truly wireless earbuds!</div>
-                    <div class="stars">★★★★☆ <span>(76,340 reviews)</span></div>
-                    <div class="price-row">
-                        <span class="price">₹999</span>
-                        <span class="price-orig">₹2,990</span>
-                        <span class="discount">67% off</span>
-                    </div>
-                    <div class="product-footer">
-                        <a href="https://www.amazon.in/s?k=boAt+Airdopes+141&tag=indiasmartpicks-21" class="btn-amazon">🛒 Buy on Amazon</a>
-                        <a href="#" class="btn-wish">♡</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 8 -->
-            <div class="product-card" data-cat="fashion">
-                <div class="badge-row"><span class="badge badge-new">Trending</span></div>
-                <div class="product-img-wrap"><img src="https://m.media-amazon.com/images/I/61rNqz0bBWL._SL1500_.jpg" alt="Levi's T-Shirt" /></div>
-                <div class="product-body">
-                    <div class="product-cat">👗 Fashion</div>
-                    <div class="product-name">Levi's Men's Classic T-Shirt (Pack of 2)</div>
-                    <div class="product-desc">Premium cotton comfort, iconic Levi's branding. Versatile style for everyday wear — available in 20+ colors!</div>
-                    <div class="stars">★★★★☆ <span>(9,871 reviews)</span></div>
-                    <div class="price-row">
-                        <span class="price">₹899</span>
-                        <span class="price-orig">₹1,499</span>
-                        <span class="discount">40% off</span>
-                    </div>
-                    <div class="product-footer">
-                        <a href="https://www.amazon.in/s?k=Levis+Men+T-Shirt+Pack&tag=indiasmartpicks-21" class="btn-amazon">🛒 Buy on Amazon</a>
-                        <a href="#" class="btn-wish">♡</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Featured Deal Section -->
-    <section class="deal-section" id="deals">
-        <div class="deal-inner">
-            <div class="deal-content">
-                <div class="deal-label">🔥 Featured Deal of the Week</div>
-                <h2>Pigeon Healthifry — Budget King Air Fryer</h2>
-                <p>Kam budget mein ghar ka sabse smart kitchen partner. Perfect for samosas, pakoras, french fries & more — without the guilt!</p>
-                <div class="deal-features">
-                    <div class="deal-feature">4.2L Family-Size Capacity</div>
-                    <div class="deal-feature">360° High Speed Air Circulation</div>
-                    <div class="deal-feature">Digital Touch Controls</div>
-                    <div class="deal-feature">Non-stick detachable basket</div>
-                    <div class="deal-feature">90% Less Oil for healthy cooking</div>
-                </div>
-                <a href="https://www.amazon.in/s?k=Pigeon+Healthifry+Digital+Air+Fryer&tag=indiasmartpicks-21" class="btn-white">🛒 Grab This Deal on Amazon ↗</a>
-            </div>
-            <div class="deal-img-wrap">
-                <img src="https://m.media-amazon.com/images/I/61kV3Z8XGSL._SL1500_.jpg" alt="Pigeon Air Fryer Deal" />
+            <div id="product-grid" class="product-grid">
+<article class="card" data-category="kitchen">
+    <img src="https://via.placeholder.com/300" alt="Stainless Steel Cookware Set">
+    <h3>Stainless Steel Cookware Set</h3>
+    <p class="cat">kitchen</p>
+    <a class="btn" href="#" target="_blank">View on Amazon</a>
+</article>
+<article class="card" data-category="beauty">
+    <img src="https://via.placeholder.com/300" alt="Vitamin C Serum">
+    <h3>Vitamin C Serum</h3>
+    <p class="cat">beauty</p>
+    <a class="btn" href="#" target="_blank">View on Amazon</a>
+</article>
+<article class="card" data-category="fashion">
+    <img src="https://via.placeholder.com/300" alt="Summer Cotton Dress">
+    <h3>Summer Cotton Dress</h3>
+    <p class="cat">fashion</p>
+    <a class="btn" href="#" target="_blank">View on Amazon</a>
+</article>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section class="hiw-section" id="about">
-        <div class="section-header">
-            <div class="section-tag">How it works</div>
-            <h2>Shopping Made Simple</h2>
-            <p>We find the best deals. You just click and save.</p>
-        </div>
-        <div class="hiw-grid">
-            <div class="hiw-card">
-                <div class="hiw-num">01</div>
-                <div class="hiw-icon">🔍</div>
-                <h3>We Research</h3>
-                <p>Our team scours Amazon India daily to find top-rated, genuinely useful products with real customer love.</p>
-            </div>
-            <div class="hiw-card">
-                <div class="hiw-num">02</div>
-                <div class="hiw-icon">✅</div>
-                <h3>We Curate</h3>
-                <p>Every pick is filtered for value, quality, and relevance to Indian lifestyles and budgets.</p>
-            </div>
-            <div class="hiw-card">
-                <div class="hiw-num">03</div>
-                <div class="hiw-icon">🛒</div>
-                <h3>You Click & Save</h3>
-                <p>Click any product and you're taken directly to Amazon India. Same price, no extra charges — ever.</p>
-            </div>
-            <div class="hiw-card">
-                <div class="hiw-num">04</div>
-                <div class="hiw-icon">💚</div>
-                <h3>Support Us Free</h3>
-                <p>If you buy via our links, we earn a small commission from Amazon — at zero extra cost to you. Win-win!</p>
-            </div>
-        </div>
-    </section>
-    <!-- Testimonials Section -->
-    <section class="reviews-section">
-        <div class="section-header">
-            <div class="section-tag">Happy Shoppers</div>
-            <h2>What Our Readers Say</h2>
-            <p>Real people, real savings, real smiles.</p>
-        </div>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <div class="review-text">"Found the Philips Air Fryer through India Smart Picks and ordered immediately. Best decision ever! My family loves it."</div>
-                <div class="reviewer">
-                    <div class="reviewer-avatar">P</div>
-                    <div>
-                        <div class="reviewer-name">Priya Sharma</div>
-                        <div class="reviewer-loc">📍 Jaipur, Rajasthan</div>
-                    </div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <div class="review-text">"Finally someone who picks products that actually make sense for Indian homes. The boAt earbuds recommendation was spot on!"</div>
-                <div class="reviewer">
-                    <div class="reviewer-avatar">R</div>
-                    <div>
-                        <div class="reviewer-name">Rahul Verma</div>
-                        <div class="reviewer-loc">📍 Delhi, NCR</div>
-                    </div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <div class="review-text">"I saved ₹3,000 on my kitchen order following picks from this site. No fake deals, everything on Amazon itself. 100% trust!"</div>
-                <div class="reviewer">
-                    <div class="reviewer-avatar">A</div>
-                    <div>
-                        <div class="reviewer-name">Ananya Iyer</div>
-                        <div class="reviewer-loc">📍 Bengaluru, Karnataka</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter-section">
-        <h2>Get Daily Deal Alerts 🔔</h2>
-        <p>Never miss a flash sale. Join thousands of smart Indian shoppers.</p>
-        <form class="newsletter-form">
-            <input type="email" placeholder="Enter your email address..." />
-            <button type="button">Subscribe Free</button>
-        </form>
-    </section>
-    <!-- Footer -->
     <footer>
-        <div class="disclaimer">
-            ⚠️ <strong>Affiliate Disclosure:</strong> India Smart Picks is a participant in the Amazon Associates Program, an affiliate advertising program designed to provide a means for us to earn fees by linking to Amazon.in. This comes at zero extra cost to you. All product prices and availability are subject to change. Please verify on Amazon before purchasing.
+        <div class="container">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2025 India Smart Picks. All rights reserved.</p>
+            <p>Shop smart, save big on Amazon India! 🛒</p>
         </div>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="#" class="logo">🇮🇳 India Smart Picks</a>
-                <p>Best deals on Fashion, Beauty, Home & Lifestyle — all in one place! Smart shopping for every Indian.</p>
-                <div class="footer-socials">
-                    <a href="https://in.pinterest.com/indiasmartpicks/" class="social-btn">📌</a>
-                    <a href="#" class="social-btn">📘</a>
-                    <a href="#" class="social-btn">📷</a>
-                    <a href="#" class="social-btn">🐦</a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Categories</h4>
-                <ul>
-                    <li><a href="#products">Kitchen & Gadgets</a></li>
-                    <li><a href="#products">Beauty & Skincare</a></li>
-                    <li><a href="#products">Fashion & Apparel</a></li>
-                    <li><a href="#products">Home & Living</a></li>
-                    <li><a href="#products">Electronics</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#deals">Today's Deals</a></li>
-                    <li><a href="https://www.amazon.in/?tag=indiasmartpicks-21">Amazon India</a></li>
-                    <li><a href="https://in.pinterest.com/indiasmartpicks/">Our Pinterest</a></li>
-                    <li><a href="#about">About Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Affiliate Disclosure</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div>© 2026 India Smart Picks. All rights reserved.</div>
-            <div>Made with ❤️ for Smart Indian Shoppers</div>
-        </div>
-        <!-- JavaScript -->
-  <script>
-    // Filter products function
-    function filterProducts(cat, btn) {
-      const cards = document.querySelectorAll('.product-card');
-      cards.forEach(card => {
-        if (cat === 'all' || card.dataset.cat === cat) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-      // Update button states
-      if (btn) {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-      }
-    }
+    </footer>
 
-    // Wishlist toggle
-    document.querySelectorAll('.btn-wish').forEach(btn => {
-      btn.addEventListener('click', e => {
-        e.preventDefault();
-        btn.textContent = btn.textContent === '♡' ? '♥' : '♡';
-        btn.style.color = btn.textContent === '♥' ? '#B91C1C' : '';
-        btn.style.borderColor = btn.textContent === '♥' ? '#B91C1C' : '';
-      });
-    });
-
-    // Newsletter
-    document.querySelector('.newsletter-form button').addEventListener('click', () => {
-      const input = document.querySelector('.newsletter-form input');
-      if (input.value.includes('@')) {
-        input.value = '';
-        input.placeholder = '✅ Subscribed! Check your inbox.';
-        input.style.borderColor = '#1E6B3C';
-      }
-    });
-
-    // Smooth scroll fix
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-  </script>
+    <script>
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.card').forEach(card => {
+                    const cat = card.dataset.category;
+                    card.style.display = (filter === 'all' || cat === filter) ? 'block' : 'none';
+                });
+            });
+        });
+        document.querySelectorAll('.cat-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const filter = card.dataset.filter;
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.toggle('active', b.dataset.filter === filter);
+                });
+                document.querySelectorAll('.card').forEach(c => {
+                    const cat = c.dataset.category;
+                    c.style.display = (cat === filter) ? 'block' : 'none';
+                });
+                document.getElementById('products').scrollIntoView({behavior:'smooth'});
+            });
+        });
+    </script>
 </body>
 </html>
-    </footer>

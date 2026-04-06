@@ -1,0 +1,26 @@
+{
+  "updated": "2026-04-06T06:22:14.688957Z",
+  "products": [
+    {
+      "id": "1",
+      "title": "Stainless Steel Cookware Set",
+      "image": "",
+      "category": "kitchen",
+      "amazon_url": ""
+    },
+    {
+      "id": "2",
+      "title": "Vitamin C Serum",
+      "image": "",
+      "category": "beauty",
+      "amazon_url": ""
+    },
+    {
+      "id": "3",
+      "title": "Summer Cotton Dress",
+      "image": "",
+      "category": "fashion",
+      "amazon_url": ""
+    }
+  ]
+}
